@@ -1,0 +1,63 @@
+Strategies To Optimize React Native App:
+1. Use React.memo() for functional components and PureComponent for class components
+2. Implement proper dependency arrays in useEffect, useMemo, and useCallback
+3. Use FlatList or SectionList instead of ScrollView for large datasets
+4. Resize images before using. Use appropriate image formats e.g WebP
+5. Use tools like Proguard (Android) and Bitcode (iOS). Remove unused libraries or assets.
+6. Use React DevTools Profiler to identify performance bottlenecks
+7. Split large components into smaller ones. Load only what's needed on each screen.
+
+lifecycle methods in react native functional components
+. Introduction:
+Functional components use React Hooks to manage lifecycle events
+Hooks replace class component lifecycle methods
+
+. useEffect Hook:
+Explain useEffect is the primary hook for handling lifecycle events
+State it can handle mounting, updating, and unmounting phases
+
+. Three Main Lifecycle Phases:
+Component Mounting:
+useEffect with empty dependency array [] runs once after initial render
+Equivalent to componentDidMount
+Used for initial setup, API calls, subscriptions
+
+Component Updating:
+useEffect with dependency array [value1, value2] runs when dependencies change
+Equivalent to componentDidUpdate
+Used for responding to prop or state changes
+
+Component Unmounting:
+Return cleanup function from useEffect
+Equivalent to componentWillUnmount
+Used for cleanup activities like removing event listeners, clearing timers
+
+. Dependency Array Importance:
+[] → Runs only once (on mount)
+No array → Runs on every render
+[deps] → Runs when the specified dependencies change
+
+Diff b/w STACK, TAB, DRAWER NAVIGATORS:
+Stack Navigator
+Feature	                            Description
+Navigation Type	          Push and pop (like pages on top of each other)
+Screen Arrangement	  Follows a stack (LIFO – Last In, First Out)
+UI Behavior	          Shows a header and back button by default
+Best Used For	          Login flow, form submission, navigating details
+Example Use	          From Home → to Product List → to Product Detail
+
+2. Tab Navigator
+Feature                         	Description
+Navigation Type	          Tab-based switching (usually bottom or top)
+Screen Arrangement	  All screens are parallel and can be switched anytime
+UI Behavior	          Tabs visible at the bottom or top of the screen
+Best Used For	          Home, Search, Profile, Settings sections
+Example Use	          Bottom tabs for quick access to main features
+
+3. Drawer Navigator
+Feature	                         Description
+Navigation Type	          Side drawer menu
+Screen Arrangement	  Screens open from side panel
+UI Behavior	          Drawer slides in from the left or right
+Best Used For	          Apps with many options or hidden menus
+Example Use	          Admin panel, dashboard, menu navigation
