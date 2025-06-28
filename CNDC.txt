@@ -1,0 +1,18 @@
+Strategies to Optimize React Native App
+
+To optimize a React Native app, start by reducing unnecessary re-renders using React.memo() for functional components and PureComponent for class components. Use hooks like useEffect, useMemo, and useCallback carefully with correct dependency arrays to control when they run. For handling large lists, prefer FlatList or SectionList over ScrollView as they are more memory efficient. Always resize images before use and opt for modern image formats like WebP for faster loading. On the build side, use tools like Proguard (Android) and Bitcode (iOS) to minimize and optimize the final app size, and remove any unused libraries or assets. Utilize React DevTools Profiler to identify performance bottlenecks in your components. Also, split large components into smaller, modular ones and only load what's needed for each screen to keep your app lightweight and efficient.
+
+
+
+
+Lifecycle Methods in React Native Functional Components
+
+In React Native functional components, lifecycle behavior is managed using hooks, especially useEffect. This hook can handle mounting, updating, and unmounting phases of a component. When useEffect is used with an empty dependency array ([]), it runs once after the component mounts, just like componentDidMount, and is commonly used for API calls or setting up subscriptions. If you provide dependencies inside the array (e.g., [value]), it behaves like componentDidUpdate, running only when those values change. For cleanup tasks such as removing event listeners or clearing timers, you can return a function from useEffect, which acts like componentWillUnmount. It’s crucial to understand the dependency array: using [] runs it once, [deps] runs it when those values change, and leaving it out runs it on every render.
+
+
+
+
+Difference Between Stack, Tab, and Drawer Navigators
+
+React Native offers different types of navigators for managing screen transitions. The Stack Navigator follows a push/pop mechanism where screens stack on top of each other, similar to pages in a browser. It shows a default header with a back button and is ideal for flows like login or navigating from a home screen to a detail screen. The Tab Navigator displays tabs at the bottom or top of the screen, allowing users to switch between parallel screens such as Home, Profile, or Settings. This is great for apps with frequently accessed main sections. The Drawer Navigator slides in a menu from the side (left or right), making it perfect for apps with many screens or hidden options, such as admin panels or dashboards. Each type of navigator suits different use cases and improves the user experience when used correctly.
+
